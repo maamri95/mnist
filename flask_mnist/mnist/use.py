@@ -1,7 +1,10 @@
 # coding: utf-8
 
 import os
+import sys
 from base64 import b64decode
+
+from flask_mnist.mnist import dir_path
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 from tensorflow.keras.models import load_model
@@ -29,7 +32,7 @@ def decode(data: str):
 
 
 def predict(data: str):
-    model = load_model("./mnist/mnist_model.h5")
+    model = load_model("./flask_mnist/mnist_model.h5")
     x = decode(data)
     return "il y a ecrit " + str(model.predict_classes(array([x]))[0])
 
@@ -39,3 +42,4 @@ if __name__ == '__main__':
     loss, acc = model.evaluate(tests, targets_test)
     print("Test loss ", loss)
     print("Test accuracy ", acc)
+    print(os.path.dirname(os.path.abspath(__file__)))

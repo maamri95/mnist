@@ -23,7 +23,7 @@ def fit():
         metrics=["accuracy"]
     )
     history = model.fit(trains, targets_train, epochs=6, validation_split=0.2, batch_size=50)
-    model.save("mnist_model.h5")
+    model.save("../mnist_model.h5")
     return history
 
 
