@@ -1,0 +1,8 @@
+#canvas{
+    border: solid;
+    background-color: black;
+}
+#draw{
+    align-content: center;
+    margin-top: 20px;
+}
