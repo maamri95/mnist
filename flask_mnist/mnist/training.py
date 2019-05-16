@@ -44,7 +44,5 @@ if __name__ == '__main__':
     plt.title("Accuracy")
     plt.show()
 
-    loss, acc = model.evaluate(tests, targets_test)
-    print("Test loss ", loss)
-    print("Test accuracy ", acc)
+
 

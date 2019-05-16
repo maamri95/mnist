@@ -36,4 +36,6 @@ def predict(data: str):
 
 if __name__ == '__main__':
     model = load_model("mnist_model.h5")
-    model.evaluate(tests, targets_test)
+    loss, acc = model.evaluate(tests, targets_test)
+    print("Test loss ", loss)
+    print("Test accuracy ", acc)
