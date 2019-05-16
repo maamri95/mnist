@@ -9,22 +9,19 @@ from tensorflow.keras.models import Sequential, save_model, load_model
 from tensorflow.keras.layers import Dense, Dropout, Flatten, Lambda
 
 
-(trains, targets_train), (tests, targets_test) = mnist.load_data()
-
-
-model = Sequential()
-model.add(Lambda(lambda x: x / 255.0, input_shape=(28, 28)))
-model.add(Flatten(input_shape=(28, 28)))
-model.add(Dense(128, activation="relu"))
-model.add(Dense(10, activation="softmax"))
-model.compile(
-    loss=tf.keras.losses.sparse_categorical_crossentropy,
-    optimizer='adam',
-    metrics=["accuracy"]
-)
-
-
 def fit():
+    (trains, targets_train), (tests, targets_test) = mnist.load_data()
+
+    model = Sequential()
+    model.add(Lambda(lambda x: x / 255.0, input_shape=(28, 28)))
+    model.add(Flatten(input_shape=(28, 28)))
+    model.add(Dense(128, activation="relu"))
+    model.add(Dense(10, activation="softmax"))
+    model.compile(
+        loss=tf.keras.losses.sparse_categorical_crossentropy,
+        optimizer='adam',
+        metrics=["accuracy"]
+    )
     history = model.fit(trains, targets_train, epochs=6, validation_split=0.2, batch_size=50)
     model.save("mnist_model.h5")
     return history
