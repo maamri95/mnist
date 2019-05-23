@@ -1,4 +1,5 @@
 # mnist
+web application to recognize handwritten numbers
 ## requirements for use
 * git https://git-scm.com/downloads
 * python >= 3.6 https://www.python.org/downloads/
