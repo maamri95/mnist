@@ -14,4 +14,4 @@ def index():
 def prediction():
     data: str = request.data
     pre = predict(data)
-    return jsonify({message=pre}, status=200)
+    return jsonify({"message":pre}, status=200)
