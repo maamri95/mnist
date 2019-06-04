@@ -124,7 +124,7 @@ async function predict() {
         },
         body: await resizedataURL(canvas.toDataURL(),28,28)
     });
-    document.querySelector("#reponse").innerHTML = await response.json()['message']
+    document.querySelector("#reponse").innerHTML = await response.json().message
 }
 
 function resizedataURL(datas, wantedWidth, wantedHeight){
